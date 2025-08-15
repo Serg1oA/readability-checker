@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readability Checker</title>
+    <link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+    <h1>Readability Checker</h1>
+    <form method="post">
+        <textarea name="text" placeholder="Enter text here">{{ text or '' }}</textarea>
+        <button type="submit">Check Readability</button>
+    </form>
+
+    {% if scores %}
+        <h2>Readability Scores:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Score</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in scores.items() %}
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
